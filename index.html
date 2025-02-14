@@ -85,6 +85,30 @@
             display: none;
         }
 
+        /* Nuevos estilos para el botón de audio */
+        .audio-helper {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #cc0000;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2em;
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .audio-helper:hover {
+            background: #ff0000;
+            transform: translateX(-50%) scale(1.05);
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -150,6 +174,8 @@
                 pointer-events: none;
                 z-index: 1000;
                 font-size: 30px;
+                color: #cc0000 !important;
+                text-shadow: 0 0 5px rgba(204, 0, 0, 0.5);
             }
         }
 
@@ -224,12 +250,38 @@
         </div>
     </div>
 
-    <audio autoplay loop>
-        <source src="https://litter.catbox.moe/y6fgjy.mp3" type="audio/mpeg">
-    </audio>
+    <!-- Botón de activación de audio -->
+    <div id="audioHelper" class="audio-helper">🎵 Activar música 🎵</div>
 
     <script>
-        // Efecto móvil mejorado
+        // Sistema de audio mejorado
+        const audio = new Audio('https://litter.catbox.moe/y6fgjy.mp3');
+        audio.loop = true;
+        let audioEnabled = false;
+
+        function enableAudio() {
+            audio.play().then(() => {
+                document.getElementById('audioHelper').style.display = 'none';
+                audioEnabled = true;
+            }).catch(error => {
+                document.getElementById('audioHelper').style.display = 'block';
+            });
+        }
+
+        // Intento de autoplay al cargar
+        window.addEventListener('load', () => {
+            audio.play().then(() => {
+                document.getElementById('audioHelper').style.display = 'none';
+            }).catch(() => {
+                document.getElementById('audioHelper').style.display = 'block';
+            });
+        });
+
+        // Activar con cualquier interacción
+        document.addEventListener('click', enableAudio);
+        document.addEventListener('touchstart', enableAudio);
+
+        // Corazones móviles mejorados
         if ('ontouchstart' in window) {
             document.body.addEventListener('touchstart', function(e) {
                 const touch = e.touches[0];
@@ -241,6 +293,9 @@
                 document.body.appendChild(heart);
                 
                 setTimeout(() => heart.remove(), 1500);
+                
+                // Intentar activar audio con el primer toque
+                if (!audioEnabled) enableAudio();
             });
         }
     </script>
