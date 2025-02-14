@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor para mi Princesa</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
+
+        body {
+            background: linear-gradient(45deg, #ffcccc, #ff9999);
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23cc0000" d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>'), auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(204, 0, 0, 0.2);
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .love-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: block;
+            border: 5px solid #cc0000;
+            box-shadow: 0 0 30px rgba(204, 0, 0, 0.3);
+            object-fit: cover;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            text-align: center;
+            color: #cc0000;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(204, 0, 0, 0.3);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .message {
+            font-size: 1.1em;
+            color: #4a4a4a;
+            text-align: justify;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20px;
+        }
+
+        .message p {
+            margin-bottom: 1.5em;
+            transition: transform 0.3s ease;
+            padding: 10px;
+            border-left: 3px solid #ff9999;
+        }
+
+        .message p:hover {
+            transform: translateX(10px);
+            background: rgba(255, 204, 204, 0.1);
+        }
+
+        .signature {
+            text-align: right;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            color: #cc0000;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 2px dashed #cc0000;
+        }
+
+        audio {
+            display: none;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.05); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.03); }
+            60% { transform: scale(1); }
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            color: #cc0000;
+            opacity: 0;
+            animation: fall 10s linear infinite;
+            font-size: 24px;
+        }
+
+        @keyframes fall {
+            0% { opacity: 0; transform: translateY(-10vh); }
+            20% { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(110vh); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ffe5e5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cc0000;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 1rem;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .love-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .signature {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts">
+        <div class="heart" style="left: 5%;">♥</div>
+        <div class="heart" style="left: 15%; animation-delay: 2s;">♥</div>
+        <div class="heart" style="left: 25%; animation-delay: 4s;">♥</div>
+        <div class="heart" style="left: 35%; animation-delay: 6s;">♥</div>
+        <div class="heart" style="left: 45%; animation-delay: 8s;">♥</div>
+    </div>
+
+    <div class="container">
+        <img src="https://litter.catbox.moe/afhu50.webp" alt="Nuestra foto" class="love-image">
+        <h1>Para mi Hermosa Princhecha ❤️</h1>
+        
+        <div class="message">
+            <p>Desde que te conocí, supe que eras especial, pero con el tiempo me di cuenta de que eres mucho más que eso. Lo que más amo de ti es tu forma de ser, esa bondad inmensa que tienes, la manera en la que siempre estás dispuesta a darlo todo por los demás. Te admiro tanto, mi amor, y no hay un solo día en el que no me sienta afortunado por tenerte a mi lado. Te amo con todo mi ser. Y luego están tus ojos… esos ojos preciosos que me hipnotizan y me hacen sentir la persona más feliz del mundo cuando te miro. Y, por supuesto, todo de ti me encanta, eres perfecta.</p>
+
+            <p>Uno de mis recuerdos más lindos contigo es cuando dormimos juntos. Me contaste que te quedaste viéndome, y aunque yo no quería dormirme, no pude evitarlo. Pero dormir a tu lado es increíble, es sentir paz, seguridad y amor. Fue un momento mágico y sé que vendrán muchos más.</p>
+
+            <p>Tenerte conmigo es como haber ganado el premio universal, porque eres la chica que siempre quise, la que sé que me ama sin importar qué pase. La que siempre estará conmigo y a la que yo voy a cuidar y mimar con todo mi corazón. Me encanta saber que podemos estar abrazados todo el día si queremos, que podemos ser nosotros sin miedo. Eres la chica más increíble y hermosa que existe.</p>
+
+            <p>Cuando hablo contigo o estoy a tu lado, todo en mí se calma. Si te veo feliz, yo soy feliz. Estar contigo es lo mejor del mundo, y sé que algún día podré abrazarte siempre que quiera, sin distancia de por medio.</p>
+
+            <p>Te prometo que siempre estaré para ti, sin importar qué pase. No pienso abandonarte ni dejar de intentar. Mi felicidad está a tu lado y sin ti, simplemente no puedo. Vamos a construir nuestra familia, esa que tanto soñamos, y te prometo que lo lograremos juntos.</p>
+
+            <p>Mi princhecha, mi niña mimada y caprichosa, te amo con todo mi ser. Gracias por dejarme ser tu niño, por estar conmigo siempre. Agradezco al mundo por haberte encontrado, porque en ti encontré todo lo que siempre quise.</p>
+
+            <p>Te amo con todo mi ser.</p>
+        </div>
+
+        <div class="signature">
+            Tu niño Dani ❤️
+        </div>
+    </div>
+
+    <audio autoplay loop>
+        <source src="https://litter.catbox.moe/y6fgjy.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio
+    </audio>
+</body>
+</html>
