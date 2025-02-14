@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Carta para mi Princhecha ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
@@ -85,7 +85,6 @@
             display: none;
         }
 
-        /* Animaciones */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -126,7 +125,6 @@
             100% { opacity: 0; transform: translateY(110vh); }
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -140,7 +138,6 @@
             border-radius: 5px;
         }
 
-        /* Efectos móviles */
         @media (hover: none) and (pointer: coarse) {
             .message p:hover {
                 transform: none;
@@ -148,46 +145,29 @@
             }
             
             .mobile-heart {
-                position: absolute;
-                font-size: 30px;
-                color: #cc0000;
-                opacity: 0;
-                animation: mobileHeart 1.5s ease-out;
-            }
-
-            .mobile-tap-effect {
                 position: fixed;
-                bottom: 30px;
-                width: 100%;
-                text-align: center;
-                color: #cc0000;
-                font-family: 'Dancing Script', cursive;
-                font-size: 1.2em;
-                animation: pulse 2s infinite;
+                animation: mobileHeart 1.5s ease-out forwards;
+                pointer-events: none;
+                z-index: 1000;
+                font-size: 30px;
             }
         }
 
         @keyframes mobileHeart {
             0% {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translate(-50%, -50%) scale(1);
             }
             100% {
                 opacity: 0;
-                transform: translateY(-100px) scale(1.5);
+                transform: translate(-50%, -150%) scale(1.5);
             }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
-                margin: 1rem;
+                padding: 15px;
+                margin: 10px;
             }
             
             h1 {
@@ -197,6 +177,11 @@
             .love-image {
                 width: 200px;
                 height: 200px;
+            }
+            
+            .message {
+                font-size: 0.95em;
+                padding: 10px;
             }
             
             .signature {
@@ -216,7 +201,7 @@
 
     <div class="container">
         <img src="https://litter.catbox.moe/afhu50.webp" alt="Nuestra foto" class="love-image">
-        <h1>Para mi Hermosa Princhecha ❤️</h1>
+        <h1>Para mi Princhecha Hermosa ❤️</h1>
         
         <div class="message">
             <p>Desde que te conocí, supe que eras especial, pero con el tiempo me di cuenta de que eres mucho más que eso. Lo que más amo de ti es tu forma de ser, esa bondad inmensa que tienes, la manera en la que siempre estás dispuesta a darlo todo por los demás. Te admiro tanto, mi amor, y no hay un solo día en el que no me sienta afortunado por tenerte a mi lado. Te amo con todo mi ser. Y luego están tus ojos… esos ojos preciosos que me hipnotizan y me hacen sentir la persona más feliz del mundo cuando te miro. Y, por supuesto, todo de ti me encanta, eres perfecta.</p>
@@ -235,20 +220,16 @@
         </div>
 
         <div class="signature">
-            Tu niño Dani ❤️
+            Tu niño Dani c: ❤️
         </div>
     </div>
 
-    <!-- Efectos móviles -->
-    <div class="mobile-tap-effect">♥ Toca la pantalla ♥</div>
-
     <audio autoplay loop>
         <source src="https://litter.catbox.moe/y6fgjy.mp3" type="audio/mpeg">
-        Tu navegador no soporta audio
     </audio>
 
     <script>
-        // Efecto para móviles
+        // Efecto móvil mejorado
         if ('ontouchstart' in window) {
             document.body.addEventListener('touchstart', function(e) {
                 const touch = e.touches[0];
