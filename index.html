@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta de Amor para mi Princesa</title>
+    <title>Carta para mi Princhecha ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
 
@@ -140,6 +140,50 @@
             border-radius: 5px;
         }
 
+        /* Efectos móviles */
+        @media (hover: none) and (pointer: coarse) {
+            .message p:hover {
+                transform: none;
+                background: transparent;
+            }
+            
+            .mobile-heart {
+                position: absolute;
+                font-size: 30px;
+                color: #cc0000;
+                opacity: 0;
+                animation: mobileHeart 1.5s ease-out;
+            }
+
+            .mobile-tap-effect {
+                position: fixed;
+                bottom: 30px;
+                width: 100%;
+                text-align: center;
+                color: #cc0000;
+                font-family: 'Dancing Script', cursive;
+                font-size: 1.2em;
+                animation: pulse 2s infinite;
+            }
+        }
+
+        @keyframes mobileHeart {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(1.5);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -195,9 +239,29 @@
         </div>
     </div>
 
+    <!-- Efectos móviles -->
+    <div class="mobile-tap-effect">♥ Toca la pantalla ♥</div>
+
     <audio autoplay loop>
         <source src="https://litter.catbox.moe/y6fgjy.mp3" type="audio/mpeg">
         Tu navegador no soporta audio
     </audio>
+
+    <script>
+        // Efecto para móviles
+        if ('ontouchstart' in window) {
+            document.body.addEventListener('touchstart', function(e) {
+                const touch = e.touches[0];
+                const heart = document.createElement('div');
+                heart.className = 'mobile-heart';
+                heart.style.left = touch.clientX + 'px';
+                heart.style.top = touch.clientY + 'px';
+                heart.innerHTML = '♥';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 1500);
+            });
+        }
+    </script>
 </body>
 </html>
